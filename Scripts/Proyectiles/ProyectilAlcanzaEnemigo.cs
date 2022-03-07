@@ -21,7 +21,13 @@ public class ProyectilAlcanzaEnemigo : MonoBehaviour
     {
         Debug.Log("Se ha producido un trigger con " + other.gameObject);
 
-        Destroy(other.gameObject);
-        Destroy(this.gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+        if (other.name != "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
